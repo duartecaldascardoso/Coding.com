@@ -1,9 +1,9 @@
 #Coding.com
 
-Concept: Puzzles related to programming, that are related to an elo rating
+Concept:Puzzles related to programming, that are related to an elo rating
 
 Web based application.
-Tech Stack used for the application: FE development: React.js, HTML and pure CSS for styling
+Tech Stack used for the application:FE development: React.js, HTML and pure CSS for styling
 BE development: Spring Boot
 Database: MySQL
 RESTful API: Spring MVC 
@@ -11,7 +11,7 @@ Containerization: Docker
 Testing: JUnit for Spring and Jest for React
 Deployment: AWS/Google Cloud
 
-Application components for the POC: SSO and user management 
+Application components for the POC:SSO and user management 
 Solve puzzle
 Create puzzle
 Support creator
@@ -26,7 +26,7 @@ Explore/learn more
 Thematic puzzles
 News about programming
 
-Example of a programming puzzle: What will be the output of the following function 
+Example of a programming puzzle:What will be the output of the following function 
 
 checkRating(1);
 void checkRating(int number){
@@ -45,4 +45,4 @@ Chess.com
 Lichess.org
 Leetcode.com
 
-Programming Roadmap for the application: BE - DB Connection - FE/BE Connection - FE visual implementation 
+Programming Roadmap for the application:BE - DB Connection - FE/BE Connection - FE visual implementation 
