@@ -11,7 +11,6 @@ import lombok.Setter;
 @AllArgsConstructor
 public class PuzzleDto {
 
-
     private Long id;
     private String question;
     private String answer;
