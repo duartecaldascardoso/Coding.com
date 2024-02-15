@@ -19,4 +19,5 @@ class CodingPuzzlesBackendApplicationTests {
 		assert(puzzle.getAnswer().equals("B"));
 	}
 
+
 }

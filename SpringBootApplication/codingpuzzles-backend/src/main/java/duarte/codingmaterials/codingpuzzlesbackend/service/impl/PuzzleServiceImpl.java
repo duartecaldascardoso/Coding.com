@@ -8,6 +8,9 @@ import duarte.codingmaterials.codingpuzzlesbackend.repository.PuzzleRepository;
 import duarte.codingmaterials.codingpuzzlesbackend.service.PuzzleService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @AllArgsConstructor
 @Service
 public class PuzzleServiceImpl implements PuzzleService {
@@ -27,5 +30,11 @@ public class PuzzleServiceImpl implements PuzzleService {
     public PuzzleDto getPuzzleById(Long puzzleId) {
         Puzzle puzzle = puzzleRepository.findById(puzzleId).orElseThrow(()-> new PuzzleNotFoundException(PUZZLE_NOT_FOUND_MESSAGE));
         return PuzzleMapper.mapToPuzzleDto(puzzle);
+    }
+
+    @Override
+    public List<PuzzleDto> getAllPuzzles() {
+        List<Puzzle> puzzleList = puzzleRepository.findAll();
+        return puzzleList.stream().map((PuzzleMapper::mapToPuzzleDto)).collect(Collectors.toList());
     }
 }

@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @AllArgsConstructor
 @RequestMapping("api/puzzles")
@@ -30,5 +32,14 @@ public class PuzzleController {
     public ResponseEntity<PuzzleDto> getPuzzleById(@PathVariable("id") Long puzzleId){
         PuzzleDto puzzleDto = puzzleService.getPuzzleById(puzzleId);
         return ResponseEntity.ok(puzzleDto);
+    }
+
+    /*
+    REST API to obtain all the available puzzles
+     */
+    @GetMapping
+    public ResponseEntity<List<PuzzleDto>> getAllPuzzles(){
+        List<PuzzleDto> puzzleList = puzzleService.getAllPuzzles();
+        return ResponseEntity.ok(puzzleList);
     }
 }
