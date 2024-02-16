@@ -22,4 +22,7 @@ public class Puzzle {
     private String question;
     @Column(name = "puzzleAnswer", nullable = false)
     private String answer;
+
+    @Column(name = "answerString", nullable = false)
+    private String answerString;
 }
