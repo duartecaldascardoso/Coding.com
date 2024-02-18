@@ -8,6 +8,7 @@ import duarte.codingmaterials.codingpuzzlesbackend.repository.PuzzleRepository;
 import duarte.codingmaterials.codingpuzzlesbackend.service.PuzzleService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,7 +29,7 @@ public class PuzzleServiceImpl implements PuzzleService {
 
     @Override
     public PuzzleDto getPuzzleById(Long puzzleId) {
-        Puzzle puzzle = puzzleRepository.findById(puzzleId).orElseThrow(()-> new PuzzleNotFoundException(PUZZLE_NOT_FOUND_MESSAGE));
+        Puzzle puzzle = puzzleRepository.findById(puzzleId).orElseThrow(() -> new PuzzleNotFoundException(PUZZLE_NOT_FOUND_MESSAGE));
         return PuzzleMapper.mapToPuzzleDto(puzzle);
     }
 
@@ -40,7 +41,7 @@ public class PuzzleServiceImpl implements PuzzleService {
 
     @Override
     public PuzzleDto updatePuzzle(Long puzzleId, PuzzleDto puzzleDto) {
-        Puzzle puzzle = puzzleRepository.findById(puzzleId).orElseThrow(()-> new PuzzleNotFoundException(PUZZLE_NOT_FOUND_MESSAGE));
+        Puzzle puzzle = puzzleRepository.findById(puzzleId).orElseThrow(() -> new PuzzleNotFoundException(PUZZLE_NOT_FOUND_MESSAGE));
 
         puzzle.setAnswer(puzzleDto.getAnswer());
         puzzle.setId(puzzleDto.getId());
@@ -53,7 +54,7 @@ public class PuzzleServiceImpl implements PuzzleService {
 
     @Override
     public void deletePuzzle(Long puzzleId) {
-        Puzzle puzzle = puzzleRepository.findById(puzzleId).orElseThrow(()-> new PuzzleNotFoundException(PUZZLE_NOT_FOUND_MESSAGE));
+        Puzzle puzzle = puzzleRepository.findById(puzzleId).orElseThrow(() -> new PuzzleNotFoundException(PUZZLE_NOT_FOUND_MESSAGE));
         puzzleRepository.delete(puzzle);
     }
 }

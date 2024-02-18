@@ -11,7 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Setter
 @Entity
-@Table(name="puzzle")
+@Table(name = "puzzle")
 public class Puzzle {
 
     @Id
@@ -22,7 +22,6 @@ public class Puzzle {
     private String question;
     @Column(name = "puzzleAnswer", nullable = false)
     private String answer;
-
     @Column(name = "answerString", nullable = false)
     private String answerString;
 }

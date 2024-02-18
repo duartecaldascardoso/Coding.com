@@ -5,11 +5,11 @@ import duarte.codingmaterials.codingpuzzlesbackend.entity.Puzzle;
 
 public class PuzzleMapper {
 
-    public static PuzzleDto mapToPuzzleDto(Puzzle puzzle){
+    public static PuzzleDto mapToPuzzleDto(Puzzle puzzle) {
         return new PuzzleDto(puzzle.getId(), puzzle.getQuestion(), puzzle.getAnswer(), puzzle.getAnswerString());
     }
 
-    public static Puzzle mapToPuzzle(PuzzleDto puzzleDto){
+    public static Puzzle mapToPuzzle(PuzzleDto puzzleDto) {
         return new Puzzle(puzzleDto.getId(), puzzleDto.getQuestion(), puzzleDto.getAnswer(), puzzleDto.getAnswerString());
     }
 }

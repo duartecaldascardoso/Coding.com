@@ -57,7 +57,7 @@ public class PuzzleController {
     REST API to delete a puzzle by ID
      */
     @DeleteMapping("delete/{id}")
-    public ResponseEntity<String> deletePuzzle(@PathVariable("id") Long puzzleID){
+    public ResponseEntity<String> deletePuzzle(@PathVariable("id") Long puzzleID) {
         puzzleService.deletePuzzle(puzzleID);
         return ResponseEntity.ok("Puzzle with the ID " + puzzleID + " was deleted with success");
     }
