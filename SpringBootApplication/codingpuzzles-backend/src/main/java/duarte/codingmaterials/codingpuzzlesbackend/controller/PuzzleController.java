@@ -20,7 +20,7 @@ public class PuzzleController {
     REST API to create a brand-new puzzle
      */
     @PostMapping
-    public ResponseEntity<PuzzleDto> createPuzzle(@RequestBody PuzzleDto puzzleDto){
+    public ResponseEntity<PuzzleDto> createPuzzle(@RequestBody PuzzleDto puzzleDto) {
         PuzzleDto savedPuzzle = puzzleService.createPuzzle(puzzleDto);
         return new ResponseEntity<>(savedPuzzle, HttpStatus.CREATED);
     }
@@ -29,7 +29,7 @@ public class PuzzleController {
     REST API to obtain a puzzle by the puzzle ID
      */
     @GetMapping("{id}")
-    public ResponseEntity<PuzzleDto> getPuzzleById(@PathVariable("id") Long puzzleId){
+    public ResponseEntity<PuzzleDto> getPuzzleById(@PathVariable("id") Long puzzleId) {
         PuzzleDto puzzleDto = puzzleService.getPuzzleById(puzzleId);
         return ResponseEntity.ok(puzzleDto);
     }
@@ -38,8 +38,18 @@ public class PuzzleController {
     REST API to obtain all the available puzzles
      */
     @GetMapping
-    public ResponseEntity<List<PuzzleDto>> getAllPuzzles(){
+    public ResponseEntity<List<PuzzleDto>> getAllPuzzles() {
         List<PuzzleDto> puzzleList = puzzleService.getAllPuzzles();
         return ResponseEntity.ok(puzzleList);
+    }
+
+    /*
+    REST API to update all the values from a puzzle by ID
+     */
+    @PutMapping("update/{id}")
+    public ResponseEntity<PuzzleDto> updatePuzzleByID(@PathVariable("id") Long puzzleId, @RequestBody PuzzleDto updatedPuzzle) {
+        PuzzleDto puzzleDto = puzzleService.updatePuzzle(puzzleId, updatedPuzzle);
+
+        return ResponseEntity.ok(puzzleDto);
     }
 }

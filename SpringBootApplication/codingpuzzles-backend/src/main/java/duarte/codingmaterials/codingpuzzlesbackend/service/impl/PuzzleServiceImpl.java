@@ -37,4 +37,17 @@ public class PuzzleServiceImpl implements PuzzleService {
         List<Puzzle> puzzleList = puzzleRepository.findAll();
         return puzzleList.stream().map((PuzzleMapper::mapToPuzzleDto)).collect(Collectors.toList());
     }
+
+    @Override
+    public PuzzleDto updatePuzzle(Long puzzleId, PuzzleDto puzzleDto) {
+        Puzzle puzzle = puzzleRepository.findById(puzzleId).orElseThrow(()-> new PuzzleNotFoundException(PUZZLE_NOT_FOUND_MESSAGE));
+
+        puzzle.setAnswer(puzzleDto.getAnswer());
+        puzzle.setId(puzzleDto.getId());
+        puzzle.setQuestion(puzzleDto.getQuestion());
+        puzzle.setAnswerString(puzzleDto.getAnswerString());
+
+        Puzzle updatedPuzzle = puzzleRepository.save(puzzle);
+        return PuzzleMapper.mapToPuzzleDto(updatedPuzzle);
+    }
 }

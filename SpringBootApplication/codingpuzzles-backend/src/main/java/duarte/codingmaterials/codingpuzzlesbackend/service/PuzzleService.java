@@ -11,4 +11,6 @@ public interface PuzzleService {
     PuzzleDto getPuzzleById(Long puzzleId);
 
     List<PuzzleDto> getAllPuzzles();
+
+    PuzzleDto updatePuzzle(Long puzzleId, PuzzleDto puzzleDto);
 }
