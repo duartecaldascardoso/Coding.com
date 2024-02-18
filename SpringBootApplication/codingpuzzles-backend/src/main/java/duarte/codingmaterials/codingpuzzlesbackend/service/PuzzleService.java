@@ -13,4 +13,6 @@ public interface PuzzleService {
     List<PuzzleDto> getAllPuzzles();
 
     PuzzleDto updatePuzzle(Long puzzleId, PuzzleDto puzzleDto);
+
+    void deletePuzzle(Long puzzleId);
 }
