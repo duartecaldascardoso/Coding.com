@@ -1,27 +1,18 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import { listPuzzles } from '../services/PuzzleService'
 
 const ListPuzzlesComponent = () => {
 
-  const dummyData = [
-    {
-        "id": 1,
-        "question": "What will be the output of the following line?",
-        "answer": "A",
-        "answerString": "No possible output, compilation error "
-    },
-    {
-        "id": 2,
-        "question": "What will be the output of the following line?",
-        "answer": "B",
-        "answerString": "No possible output, compilation error "
-    },
-    {
-        "id": 3,
-        "question": "What will be the output of the following line?",
-        "answer": "C",
-        "answerString": "No possible output, compilation error "
-    }
-  ]  
+  const [puzzles, setPuzzles] = useState([])
+
+  useEffect(() =>{
+    listPuzzles().then((response) =>{
+        setPuzzles(response.data);
+    }).catch((error) =>{
+        console.log(error);
+    })
+  }, [])
+
   return (
     <div className="container">
         <h2 className='text-center'>List of Puzzles</h2>
@@ -36,7 +27,7 @@ const ListPuzzlesComponent = () => {
             </thead>
             <tbody>
                {
-                dummyData.map(puzzle => 
+                puzzles.map(puzzle => 
                     <tr key={puzzle.id}>
                         <td>{puzzle.id}</td>
                         <td>{puzzle.question}</td>
