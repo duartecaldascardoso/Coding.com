@@ -1,12 +1,12 @@
 import './App.css'
+import ListPuzzlesComponent from './components/ListPuzzlesComponent'
 
 function App() {
 
   return (
-    <>
-      <h1>Puzzle application</h1>
-    </>
+    <ListPuzzlesComponent />
   )
 }
+
 
 export default App
