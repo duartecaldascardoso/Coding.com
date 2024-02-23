@@ -1,9 +1,12 @@
 import React, {useEffect, useState} from 'react'
 import { listPuzzles } from '../services/PuzzleService'
+import { useNavigate} from 'react-router-dom'
 
 const ListPuzzlesComponent = () => {
 
   const [puzzles, setPuzzles] = useState([])
+
+  const navigator = useNavigate()
 
   useEffect(() =>{
     listPuzzles().then((response) =>{
@@ -13,9 +16,14 @@ const ListPuzzlesComponent = () => {
     })
   }, [])
 
+  function createPuzzle(){
+    navigator('/puzzle/create')
+  }
+
   return (
     <div className="container">
         <h2 className='text-center'>List of Puzzles</h2>
+        <button className='btn btn-primary mb-2' onClick={createPuzzle}>Create Puzzle!</button>
         <table className='table table-striped table bordered'>
             <thead>
                 <tr>
