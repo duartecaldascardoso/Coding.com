@@ -8,17 +8,16 @@ import PuzzleComponent from './components/PuzzleComponent'
 function App() {
 
   return (
-    <>
     <BrowserRouter>
-        <HeaderComponent />
-            <Routes>
-              <Route path='/' element={<ListPuzzlesComponent />} />
-              <Route path='/puzzle/create' element={<PuzzleComponent />} />
-            </Routes>  
-        <FooterComponent/>
+      <HeaderComponent />
+      <Routes>
+        <Route path='/' element={<ListPuzzlesComponent />} />
+        <Route path='/puzzle/create' element={<PuzzleComponent />} />
+      </Routes>
+      <FooterComponent />
     </BrowserRouter>
-    </>
-    
+
   )
 }
+
 export default App
