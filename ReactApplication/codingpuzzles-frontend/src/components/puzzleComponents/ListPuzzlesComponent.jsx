@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { listPuzzles } from '../services/PuzzleService'
+import { listPuzzles } from '../../services/PuzzleService'
 import { useNavigate } from 'react-router-dom'
 
 const ListPuzzlesComponent = () => {

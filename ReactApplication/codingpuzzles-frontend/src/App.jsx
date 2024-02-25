@@ -1,9 +1,9 @@
 import './App.css'
 import FooterComponent from './components/FooterComponent'
 import HeaderComponent from './components/HeaderComponent'
-import ListPuzzlesComponent from './components/ListPuzzlesComponent'
+import ListPuzzlesComponent from './components/puzzleComponents/ListPuzzlesComponent'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import PuzzleComponent from './components/PuzzleComponent'
+import PuzzleComponent from './components/puzzleComponents/PuzzleComponent'
 
 function App() {
 
