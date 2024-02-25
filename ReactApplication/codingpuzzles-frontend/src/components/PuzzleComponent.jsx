@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
+import { createPuzzle } from '../services/PuzzleService';
+import {useNavigate} from 'react-router-dom';
 
 const PuzzleComponent = () => {
 
   const [question, setQuestion] = useState('');
   const [answer, setAnswer] = useState('');
   const [answerString, setAnswerString] = useState('');
+
+  const navigator = useNavigate();
 
   function savePuzzle(event) {
     event.preventDefault();
@@ -15,7 +19,14 @@ const PuzzleComponent = () => {
       answerString
     }
     console.log(puzzle);
+
+    createPuzzle(puzzle).then((response) => {
+      console.log(response.data);
+      navigator('/');
+    }
+    );
   }
+
   return (
     <div className='container'>
       <br />
@@ -25,8 +36,9 @@ const PuzzleComponent = () => {
           <div className='card-body'>
             <form>
               <div className='form-group mb-2'>
-                <label className='form-label'>Question</label>
+                <label htmlFor="question" className='form-label'>Question</label>
                 <input
+                  id="question"
                   type='text'
                   placeholder='Enter Puzzle Question'
                   name='question'
@@ -36,25 +48,27 @@ const PuzzleComponent = () => {
               </div>
 
               <div className='form-group mb-2'>
-                <label className='form-label'>Answer</label>
+                <label htmlFor="answer" className='form-label'>Answer</label>
                 <input
+                  id="answer"
                   type='text'
                   placeholder='Enter Puzzle Answer'
                   name='answer'
                   value={answer}
                   className='form-control'
-                  onChange={(event) =>setAnswer(event.target.value)} />
+                  onChange={(event) => setAnswer(event.target.value)} />
               </div>
 
               <div className='form-group mb-2'>
-                <label className='form-label'>Answer String</label>
+                <label htmlFor="answerString" className='form-label'>Answer String</label>
                 <input
+                  id="answerString"
                   type='text'
                   placeholder='Enter Puzzle Answer String'
                   name='answerString'
                   value={answerString}
                   className='form-control'
-                  onChange={(event) =>setAnswerString(event.target.value)} />
+                  onChange={(event) => setAnswerString(event.target.value)} />
               </div>
 
               <button className='btn btn-success' onClick={savePuzzle}>Submit</button>
@@ -65,5 +79,6 @@ const PuzzleComponent = () => {
     </div>
   )
 }
+
 
 export default PuzzleComponent
