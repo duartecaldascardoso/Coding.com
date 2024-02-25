@@ -19,7 +19,7 @@ const PuzzleComponent = () => {
   function savePuzzle(event) {
     event.preventDefault();
 
-    if (validateForm) {
+    if (validateForm()) {
       const puzzle = { question, answer, answerString }
       createPuzzle(puzzle).then((response) => {
         console.log(response.data);
@@ -40,15 +40,15 @@ const PuzzleComponent = () => {
       valid = false;
     }
     if (answer.trim()) {
-      errorsCopy.question = '';
+      errorsCopy.answer = '';
     } else {
-      errorsCopy.question = 'Answer is required';
+      errorsCopy.answer = 'Answer is required';
       valid = false;
     }
     if (answerString.trim()) {
-      errorsCopy.question = '';
+      errorsCopy.answerString = '';
     } else {
-      errorsCopy.question = 'Answer String is required';
+      errorsCopy.answerString = 'Answer String is required';
       valid = false;
     }
 
