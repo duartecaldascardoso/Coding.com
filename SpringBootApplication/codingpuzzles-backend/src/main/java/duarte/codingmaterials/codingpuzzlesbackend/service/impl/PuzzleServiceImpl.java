@@ -57,4 +57,9 @@ public class PuzzleServiceImpl implements PuzzleService {
         Puzzle puzzle = puzzleRepository.findById(puzzleId).orElseThrow(() -> new PuzzleNotFoundException(PUZZLE_NOT_FOUND_MESSAGE));
         puzzleRepository.delete(puzzle);
     }
+
+    @Override
+    public void deletePuzzles() {
+        puzzleRepository.deleteAll();
+    }
 }

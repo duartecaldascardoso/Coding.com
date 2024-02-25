@@ -8,23 +8,53 @@ const PuzzleComponent = () => {
   const [answer, setAnswer] = useState('');
   const [answerString, setAnswerString] = useState('');
 
+  const [errors, setErrors] = useState({
+    question: '',
+    answer: '',
+    answerString: ''
+  });
+
   const navigator = useNavigate();
 
   function savePuzzle(event) {
     event.preventDefault();
 
-    const puzzle = {
-      question,
-      answer,
-      answerString
+    if (validateForm) {
+      const puzzle = { question, answer, answerString }
+      createPuzzle(puzzle).then((response) => {
+        console.log(response.data);
+        navigator('/');
+      }
+      );
     }
-    console.log(puzzle);
+  }
 
-    createPuzzle(puzzle).then((response) => {
-      console.log(response.data);
-      navigator('/');
+  function validateForm() {
+    let valid = true;
+
+    const errorsCopy = { ...errors };
+    if (question.trim()) {
+      errorsCopy.question = '';
+    } else {
+      errorsCopy.question = 'Question is required';
+      valid = false;
     }
-    );
+    if (answer.trim()) {
+      errorsCopy.question = '';
+    } else {
+      errorsCopy.question = 'Answer is required';
+      valid = false;
+    }
+    if (answerString.trim()) {
+      errorsCopy.question = '';
+    } else {
+      errorsCopy.question = 'Answer String is required';
+      valid = false;
+    }
+
+    setErrors(errorsCopy);
+
+    return valid;
   }
 
   return (
@@ -43,8 +73,9 @@ const PuzzleComponent = () => {
                   placeholder='Enter Puzzle Question'
                   name='question'
                   value={question}
-                  className='form-control'
+                  className={'form-control' + (errors.question ? ' is-invalid' : '')}
                   onChange={(event) => setQuestion(event.target.value)} />
+                  {errors.question && <div className='invalid-feedback'>{errors.question}</div>}
               </div>
 
               <div className='form-group mb-2'>
@@ -55,8 +86,9 @@ const PuzzleComponent = () => {
                   placeholder='Enter Puzzle Answer'
                   name='answer'
                   value={answer}
-                  className='form-control'
+                  className={'form-control' + (errors.answer ? ' is-invalid' : '')}
                   onChange={(event) => setAnswer(event.target.value)} />
+                  {errors.answer && <div className='invalid-feedback'>{errors.answer}</div>}
               </div>
 
               <div className='form-group mb-2'>
@@ -67,8 +99,9 @@ const PuzzleComponent = () => {
                   placeholder='Enter Puzzle Answer String'
                   name='answerString'
                   value={answerString}
-                  className='form-control'
+                  className={'form-control' + (errors.answerString ? ' is-invalid' : '')}
                   onChange={(event) => setAnswerString(event.target.value)} />
+                  {errors.answerString && <div className='invalid-feedback'>{errors.answerString}</div>}
               </div>
 
               <button className='btn btn-success' onClick={savePuzzle}>Submit</button>

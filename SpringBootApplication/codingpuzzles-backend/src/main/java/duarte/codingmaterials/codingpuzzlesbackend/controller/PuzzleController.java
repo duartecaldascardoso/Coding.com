@@ -62,4 +62,13 @@ public class PuzzleController {
         puzzleService.deletePuzzle(puzzleID);
         return ResponseEntity.ok("Puzzle with the ID " + puzzleID + " was deleted with success");
     }
+
+    /*
+    REST API to delete all the puzzles (use with care)
+     */
+    @DeleteMapping
+    public ResponseEntity<String> deleteAllPuzzles(){
+        puzzleService.deletePuzzles();
+        return ResponseEntity.ok("All the puzzles were deleted");
+    }
 }

@@ -15,4 +15,6 @@ public interface PuzzleService {
     PuzzleDto updatePuzzle(Long puzzleId, PuzzleDto puzzleDto);
 
     void deletePuzzle(Long puzzleId);
+
+    void deletePuzzles();
 }
