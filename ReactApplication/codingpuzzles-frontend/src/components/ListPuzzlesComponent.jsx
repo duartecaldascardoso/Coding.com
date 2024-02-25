@@ -23,7 +23,7 @@ const ListPuzzlesComponent = () => {
   return (
     <div className="container">
       <h2 className='text-center'>List of Puzzles</h2>
-      <button className='btn btn-primary mb-2' onClick={createPuzzle}>Create Puzzle!</button>
+      <button className='btn btn-primary mb-2' onClick={createPuzzle}>Create Puzzle</button>
       <table className='table table-striped table bordered'>
         <thead>
           <tr>
