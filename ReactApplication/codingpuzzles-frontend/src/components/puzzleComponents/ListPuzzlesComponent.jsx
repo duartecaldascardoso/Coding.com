@@ -20,6 +20,10 @@ const ListPuzzlesComponent = () => {
     navigator('/puzzle/create')
   }
 
+  function updatePuzzle(puzzleId) {
+    navigator(`/edit-puzzle/${puzzleId}`)
+  }
+
   return (
     <div className="container">
       <h2 className='text-center'>List of Puzzles</h2>
@@ -31,6 +35,7 @@ const ListPuzzlesComponent = () => {
             <th>Question</th>
             <th>Answer</th>
             <th>Answer String</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -41,7 +46,9 @@ const ListPuzzlesComponent = () => {
                 <td>{puzzle.question}</td>
                 <td>{puzzle.answer}</td>
                 <td>{puzzle.answerString}</td>
-
+                <td>
+                    <button className='btn btn-info' onClick={() => updatePuzzle(puzzle.id)}>Update</button>
+                </td>  
               </tr>)
           }
         </tbody>

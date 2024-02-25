@@ -13,6 +13,7 @@ function App() {
       <Routes>
         <Route path='/' element={<ListPuzzlesComponent />} />
         <Route path='/puzzle/create' element={<PuzzleComponent />} />
+        <Route path='/edit-puzzle/:id' element={<PuzzleComponent />} />
       </Routes>
       <FooterComponent />
     </BrowserRouter>

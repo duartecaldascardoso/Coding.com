@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { createPuzzle } from '../../services/PuzzleService';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const PuzzleComponent = () => {
 
@@ -8,6 +8,7 @@ const PuzzleComponent = () => {
   const [answer, setAnswer] = useState('');
   const [answerString, setAnswerString] = useState('');
 
+  const {id} = useParams();
   const [errors, setErrors] = useState({
     question: '',
     answer: '',
@@ -57,12 +58,22 @@ const PuzzleComponent = () => {
     return valid;
   }
 
+  function pageTitle(){
+    if(id){
+      return <h2 className='text-center'>Update Puzzle</h2>
+    }else{
+      return <h2 className='text-center'>Create Puzzle</h2>
+    }
+  }
+
   return (
     <div className='container'>
       <br />
       <div className='row'>
         <div className='card col-md-6 offset-md-3'>
-          <h2 className='text-center'>Create Puzzle</h2>
+          {
+            pageTitle()
+          }
           <div className='card-body'>
             <form>
               <div className='form-group mb-2'>
