@@ -44,7 +44,6 @@ public class PuzzleServiceImpl implements PuzzleService {
         Puzzle puzzle = puzzleRepository.findById(puzzleId).orElseThrow(() -> new PuzzleNotFoundException(PUZZLE_NOT_FOUND_MESSAGE));
 
         puzzle.setAnswer(puzzleDto.getAnswer());
-        puzzle.setId(puzzleDto.getId());
         puzzle.setQuestion(puzzleDto.getQuestion());
         puzzle.setAnswerString(puzzleDto.getAnswerString());
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { createPuzzle, getPuzzleById } from '../../services/PuzzleService';
+import { createPuzzle, getPuzzleById, updatePuzzle } from '../../services/PuzzleService';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const PuzzleComponent = () => {
@@ -8,7 +8,7 @@ const PuzzleComponent = () => {
   const [answer, setAnswer] = useState('');
   const [answerString, setAnswerString] = useState('');
 
-  const {id} = useParams();
+  const { id } = useParams();
   const [errors, setErrors] = useState({
     question: '',
     answer: '',
@@ -29,16 +29,33 @@ const PuzzleComponent = () => {
     }
   }, [id]);
 
-  function savePuzzle(event) {
+  function saveOrUpdatePuzzle(event) {
     event.preventDefault();
 
     if (validateForm()) {
-      const puzzle = { question, answer, answerString }
-      createPuzzle(puzzle).then((response) => {
-        console.log(response.data);
-        navigator('/');
+      const puzzle = {
+        question,
+        answer,
+        answerString
       }
-      );
+      console.log(puzzle);
+
+      if (id) {
+        updatePuzzle(id, puzzle).then((response) => {
+          console.log(response.data);
+          navigator('/');
+        }).catch(error => {
+          console.log(error);
+        })
+      }
+      else {
+        createPuzzle(puzzle).then((response) => {
+          console.log(response.data);
+          navigator('/');
+        }).catch(error => {
+          console.log(error);
+        })
+      }
     }
   }
 
@@ -70,10 +87,10 @@ const PuzzleComponent = () => {
     return valid;
   }
 
-  function pageTitle(){
-    if(id){
+  function pageTitle() {
+    if (id) {
       return <h2 className='text-center'>Update Puzzle</h2>
-    }else{
+    } else {
       return <h2 className='text-center'>Create Puzzle</h2>
     }
   }
@@ -98,7 +115,7 @@ const PuzzleComponent = () => {
                   value={question}
                   className={'form-control' + (errors.question ? ' is-invalid' : '')}
                   onChange={(event) => setQuestion(event.target.value)} />
-                  {errors.question && <div className='invalid-feedback'>{errors.question}</div>}
+                {errors.question && <div className='invalid-feedback'>{errors.question}</div>}
               </div>
 
               <div className='form-group mb-2'>
@@ -111,7 +128,7 @@ const PuzzleComponent = () => {
                   value={answer}
                   className={'form-control' + (errors.answer ? ' is-invalid' : '')}
                   onChange={(event) => setAnswer(event.target.value)} />
-                  {errors.answer && <div className='invalid-feedback'>{errors.answer}</div>}
+                {errors.answer && <div className='invalid-feedback'>{errors.answer}</div>}
               </div>
 
               <div className='form-group mb-2'>
@@ -124,10 +141,10 @@ const PuzzleComponent = () => {
                   value={answerString}
                   className={'form-control' + (errors.answerString ? ' is-invalid' : '')}
                   onChange={(event) => setAnswerString(event.target.value)} />
-                  {errors.answerString && <div className='invalid-feedback'>{errors.answerString}</div>}
+                {errors.answerString && <div className='invalid-feedback'>{errors.answerString}</div>}
               </div>
 
-              <button className='btn btn-success' onClick={savePuzzle}>Submit</button>
+              <button className='btn btn-success' onClick={saveOrUpdatePuzzle}>Submit</button>
             </form>
           </div>
         </div>
