@@ -1,0 +1,21 @@
+@startuml
+
+left to right direction
+skinparam packageStyle none
+
+actor User
+User --> "SSO Login"
+User --> "User Registration"
+User --> "Manage Account"
+User --> "Settings"
+User --> "My Account"
+User --> "Solve Puzzle"
+User --> "Create Puzzle"
+User --> "Support Creator"
+User --> "Support Puzzle Creators"
+User --> "Puzzle History"
+User --> "Thematic Puzzles"
+User --> "Explore/learn more"
+User --> "News about Programming"
+
+@enduml
