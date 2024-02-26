@@ -27,7 +27,7 @@ const ListPuzzlesComponent = () => {
   return (
     <div className="container">
       <h2 className='text-center'>List of Puzzles</h2>
-      <button className='btn btn-primary mb-2' onClick={createPuzzle}>Create Puzzle</button>
+      <button style={{ backgroundColor: 'black' }} className='btn btn-primary mb-2' onClick={createPuzzle}>Create Puzzle</button>
       <table className='table table-striped table bordered'>
         <thead>
           <tr>
@@ -47,7 +47,7 @@ const ListPuzzlesComponent = () => {
                 <td>{puzzle.answer}</td>
                 <td>{puzzle.answerString}</td>
                 <td>
-                    <button className='btn btn-info' onClick={() => updatePuzzle(puzzle.id)}>Update</button>
+                    <button style={{ backgroundColor: 'black' }} className='btn btn-primary' onClick={() => updatePuzzle(puzzle.id)}>Update</button>
                 </td>  
               </tr>)
           }
