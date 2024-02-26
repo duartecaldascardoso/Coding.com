@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { createPuzzle } from '../../services/PuzzleService';
+import React, { useEffect, useState } from 'react'
+import { createPuzzle, getPuzzleById } from '../../services/PuzzleService';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const PuzzleComponent = () => {
@@ -16,6 +16,18 @@ const PuzzleComponent = () => {
   });
 
   const navigator = useNavigate();
+
+  useEffect(() => {
+    if (id) {
+      getPuzzleById(id).then((response) => {
+        setQuestion(response.data.question);
+        setAnswer(response.data.answer);
+        setAnswerString(response.data.answerString);
+      }).catch((error) => {
+        console.log(error);
+      })
+    }
+  }, [id]);
 
   function savePuzzle(event) {
     event.preventDefault();
