@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { listPuzzles } from '../../services/PuzzleService'
+import { deletePuzzle, listPuzzles } from '../../services/PuzzleService'
 import { useNavigate } from 'react-router-dom'
 
 const ListPuzzlesComponent = () => {
@@ -9,12 +9,16 @@ const ListPuzzlesComponent = () => {
   const navigator = useNavigate()
 
   useEffect(() => {
+    getAllPuzzles();
+  }, [])
+
+  function getAllPuzzles(){
     listPuzzles().then((response) => {
       setPuzzles(response.data);
     }).catch((error) => {
       console.log(error);
     })
-  }, [])
+  }
 
   function createPuzzle() {
     navigator('/puzzle/create')
@@ -22,6 +26,17 @@ const ListPuzzlesComponent = () => {
 
   function updatePuzzle(puzzleId) {
     navigator(`/edit-puzzle/${puzzleId}`)
+  }
+
+  function removePuzzle(puzzleId) {
+    console.log(puzzleId);
+    deletePuzzle(puzzleId).then((response) => {
+      getAllPuzzles();
+      console.log(response.data);
+    }).catch(error =>{
+      console.log(error);
+    })
+      
   }
 
   return (
@@ -48,6 +63,7 @@ const ListPuzzlesComponent = () => {
                 <td>{puzzle.answerString}</td>
                 <td>
                     <button style={{ backgroundColor: 'black' }} className='btn btn-primary' onClick={() => updatePuzzle(puzzle.id)}>Update</button>
+                    <button className='btn btn-danger' onClick={() => removePuzzle(puzzle.id)}>Delete</button>
                 </td>  
               </tr>)
           }
