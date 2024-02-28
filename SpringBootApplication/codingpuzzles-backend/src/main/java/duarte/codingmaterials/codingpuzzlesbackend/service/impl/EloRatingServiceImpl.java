@@ -3,14 +3,11 @@ package duarte.codingmaterials.codingpuzzlesbackend.service.impl;
 import duarte.codingmaterials.codingpuzzlesbackend.dto.EloRatingDto;
 import duarte.codingmaterials.codingpuzzlesbackend.entity.EloRating;
 import duarte.codingmaterials.codingpuzzlesbackend.exception.EloRatingNotFoundException;
-import duarte.codingmaterials.codingpuzzlesbackend.exception.PuzzleNotFoundException;
 import duarte.codingmaterials.codingpuzzlesbackend.mapper.EloRatingMapper;
 import duarte.codingmaterials.codingpuzzlesbackend.repository.EloRatingRepository;
 import duarte.codingmaterials.codingpuzzlesbackend.service.EloRatingService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.concurrent.ExecutionException;
 
 @AllArgsConstructor
 @Service
