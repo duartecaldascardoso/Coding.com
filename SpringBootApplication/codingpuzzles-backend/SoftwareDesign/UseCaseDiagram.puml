@@ -1,21 +1,17 @@
 @startuml
-
+'https://plantuml.com/use-case-diagram
 left to right direction
-skinparam packageStyle none
+rectangle User{
+    :User: as U
+}
 
-actor User
-User --> "SSO Login"
-User --> "User Registration"
-User --> "Manage Account"
-User --> "Settings"
-User --> "My Account"
-User --> "Solve Puzzle"
-User --> "Create Puzzle"
-User --> "Support Creator"
-User --> "Support Puzzle Creators"
-User --> "Puzzle History"
-User --> "Thematic Puzzles"
-User --> "Explore/learn more"
-User --> "News about Programming"
+rectangle CodingPuzzlesApplication{
+    (Login) as L
+    (Create new Puzzle) as CP
+    (Solve Puzzle) as SP
+}
 
+U --> L
+U --> CP
+U --> SP
 @enduml
