@@ -19,7 +19,8 @@ public class User {
     private Long id;
     @Column(name = "eloId", nullable = false)
     private String eloId;
-    @Column(name = "username", nullable = true)
+    @Column(name = "username")
     private String username;
+
 }
 

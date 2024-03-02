@@ -15,4 +15,5 @@ public class PuzzleDto {
     private String question;
     private String answer;
     private String answerString;
+    private String puzzleCreatorId;
 }

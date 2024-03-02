@@ -24,4 +24,6 @@ public class Puzzle {
     private String answer;
     @Column(name = "answerString", nullable = false)
     private String answerString;
+    @Column(name = "puzzleCreatorId")
+    private String puzzleCreatorId;
 }
