@@ -9,9 +9,15 @@ rectangle CodingPuzzlesApplication{
     (Login) as L
     (Create new Puzzle) as CP
     (Solve Puzzle) as SP
+    (Support Creator) as SC
+    (Check Puzzle History) as CPH
+    (Support Puzzle Creators) as SPC
 }
 
 U --> L
 U --> CP
 U --> SP
+U --> SC
+U --> CPH
+U --> SPC
 @enduml
