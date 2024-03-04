@@ -4,7 +4,6 @@ left to right direction
 rectangle User{
     :User: as U
 }
-
 rectangle CodingPuzzlesApplication{
     (Login) as L
     (Create new Puzzle) as CP
@@ -13,7 +12,6 @@ rectangle CodingPuzzlesApplication{
     (Check Puzzle History) as CPH
     (Support Puzzle Creators) as SPC
 }
-
 U --> L
 U --> CP
 U --> SP
