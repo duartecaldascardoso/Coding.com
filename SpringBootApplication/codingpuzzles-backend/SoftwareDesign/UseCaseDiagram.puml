@@ -1,8 +1,9 @@
 @startuml
 'https://plantuml.com/use-case-diagram
 left to right direction
-rectangle User{
+rectangle {
     :User: as U
+    :Admin: as Admin
 }
 rectangle CodingPuzzlesApplication{
     (Login) as L
@@ -13,6 +14,8 @@ rectangle CodingPuzzlesApplication{
     (Support Puzzle Creators) as SPC
     (Change Theme) as CT
     (Explore/Learn More) as ELM
+    (SSO/User Management) as UM
+    (Check Programming News) as PN
 }
 U --> L
 U --> CP
@@ -22,4 +25,6 @@ U --> CPH
 U --> SPC
 U --> CT
 U --> ELM
+U --> PN
+Admin --> UM
 @enduml
