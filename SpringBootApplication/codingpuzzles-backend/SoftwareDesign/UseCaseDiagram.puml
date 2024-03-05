@@ -11,6 +11,8 @@ rectangle CodingPuzzlesApplication{
     (Support Creator) as SC
     (Check Puzzle History) as CPH
     (Support Puzzle Creators) as SPC
+    (Change Theme) as CT
+    (Explore/Learn More) as ELM
 }
 U --> L
 U --> CP
@@ -18,4 +20,6 @@ U --> SP
 U --> SC
 U --> CPH
 U --> SPC
+U --> CT
+U --> ELM
 @enduml
