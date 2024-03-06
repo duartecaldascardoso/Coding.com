@@ -5,6 +5,9 @@ rectangle {
     :User: as U
     :Admin: as Admin
 }
+note right
+All the user activities will apply to the admin
+end note
 rectangle CodingPuzzlesApplication{
     (Login) as L
     (Create new Puzzle) as CP
@@ -16,7 +19,9 @@ rectangle CodingPuzzlesApplication{
     (Explore/Learn More) as ELM
     (SSO/User Management) as UM
     (Check Programming News) as PN
+    (Solve Daily Puzzle) as SDP
 }
+
 U --> L
 U --> CP
 U --> SP
@@ -26,5 +31,6 @@ U --> SPC
 U --> CT
 U --> ELM
 U --> PN
+U--> SDP
 Admin --> UM
 @enduml
