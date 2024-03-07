@@ -4,24 +4,18 @@
 class Puzzle
 class User
 class EloRating
-class 
+class Problem
+class Submission
+class Leaderboard
+class UserAuth
+class Category
+class Notifications
+class Feedback
+class Moderation
+class Statistics
 
-List <|-- AbstractList
-Collection <|-- AbstractCollection
-
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
-
-class ArrayList {
-Object[] elementData
-size()
-}
-
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
-}
+Puzzle <--> Problem
+User <--> EloRating
+User <--> Statistics
 
 @enduml
