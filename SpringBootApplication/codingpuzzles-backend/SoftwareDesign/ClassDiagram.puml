@@ -1,3 +1,4 @@
+
 @startuml
 'https://plantuml.com/class-diagram
 
@@ -17,5 +18,13 @@ class Statistics
 Puzzle <--> Problem
 User <--> EloRating
 User <--> Statistics
+Puzzle --> Category
+Puzzle --> Feedback
+UserAuth --> User
+Leaderboard --> User
+Moderation --> Puzzle
+Submission --> Puzzle
+Notifications --> User
+User --> Puzzle
 
 @enduml
