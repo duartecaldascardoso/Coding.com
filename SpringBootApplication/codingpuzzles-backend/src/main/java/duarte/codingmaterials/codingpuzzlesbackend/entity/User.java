@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,6 +23,10 @@ public class User {
     private String eloId;
     @Column(name = "username")
     private String username;
+    @Column(name = "countryId")
+    private String countryId;
+    @Column(name = "birthDate")
+    private Date birthDate;
 
 }
 
