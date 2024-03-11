@@ -1,4 +1,4 @@
-package duarte.codingmaterials.codingpuzzlesbackend.service.impl;
+package duarte.codingmaterials.codingpuzzlesbackend.service;
 
 
 import duarte.codingmaterials.codingpuzzlesbackend.dto.UserDto;
@@ -16,5 +16,4 @@ public interface UserService {
 
     void deleteUser(Long userId);
 
-    void deleteUsers();
 }

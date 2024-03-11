@@ -23,7 +23,6 @@ public class PuzzleServiceImpl implements PuzzleService {
 
         Puzzle puzzle = PuzzleMapper.mapToPuzzle(puzzleDto);
         Puzzle savedPuzzle = puzzleRepository.save(puzzle);
-
         return PuzzleMapper.mapToPuzzleDto(savedPuzzle);
     }
 
