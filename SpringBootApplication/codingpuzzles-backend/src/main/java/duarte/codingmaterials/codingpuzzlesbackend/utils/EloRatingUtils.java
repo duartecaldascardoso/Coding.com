@@ -6,8 +6,9 @@ public class EloRatingUtils {
     private double timePassed;
     private static final double RATING_COEFFICIENT = 0.3;
 
-    public int calculateEloForUser(Double timePassed, int currentRating){
-
-        return 0;
+    public double calculateEloForUser(Double timePassed, int currentRating, int puzzleElo){
+         return currentRating*(RATING_COEFFICIENT*timePassed)*puzzleElo;
     }
+
+
 }
