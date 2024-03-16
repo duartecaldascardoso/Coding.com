@@ -8,7 +8,6 @@ class EloRating
 class Problem
 class Submission
 class Leaderboard
-class UserAuth
 class Category
 class Notifications
 class Feedback
@@ -20,7 +19,6 @@ User <--> EloRating
 User <--> Statistics
 Puzzle --> Category
 Puzzle --> Feedback
-UserAuth --> User
 Leaderboard --> User
 Moderation --> Puzzle
 Submission --> Puzzle
