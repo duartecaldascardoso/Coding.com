@@ -15,7 +15,7 @@ class PuzzleObjectTests {
 
     @Test
     public void puzzleConstructorTest() {
-        Puzzle puzzle = new Puzzle(1L, "What is the first position of an array?", "B", "0");
+        Puzzle puzzle = new Puzzle(1L, "What is the first position of an array?", "B", "0","Parker");
 
         assert (puzzle.getId().equals(1L));
         assert (puzzle.getAnswer().equals("B"));
@@ -25,8 +25,8 @@ class PuzzleObjectTests {
     @Test
     public void puzzleMapperTest() {
         // Creating Puzzle and PuzzleDto objects
-        Puzzle puzzle = new Puzzle(1L, "What is the first position of an array?", "B", "0");
-        PuzzleDto puzzleDto = new PuzzleDto(1L, "What is the first position of an array?", "B", "0");
+        Puzzle puzzle = new Puzzle(1L, "What is the first position of an array?", "B", "0","Parker");
+        PuzzleDto puzzleDto = new PuzzleDto(1L, "What is the first position of an array?", "B", "0","Parker");
 
         //Mapping for answer
         assert (PuzzleMapper.mapToPuzzle(puzzleDto).getAnswer().equals(puzzle.getAnswer()));
