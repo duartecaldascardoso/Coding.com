@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class EloRatingServiceImpl implements EloRatingService {
     private EloRatingRepository eloRatingRepository;
-    private static final String ELO_RATING_NOT_FOUND_BY_ID = "No Puzzle was found with the provided id";
+    private static final String ELO_RATING_NOT_FOUND_BY_ID = "No Puzzle was found with the provided ID";
 
     @Override
     public EloRatingDto getEloForUser(Long userId, EloRatingDto eloRatingDto) {
