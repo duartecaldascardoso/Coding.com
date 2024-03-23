@@ -10,3 +10,7 @@ Example of a use case scenario:
 4. User clicks Puzzle button
 5. User does a set of puzzles
 6. User logs out
+
+Main purposes of the application:
+1. Provide programming experience
+2. Couple puzzle solving with programming skills
