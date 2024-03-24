@@ -14,3 +14,4 @@ Example of a use case scenario:
 Main purposes of the application:
 1. Provide programming experience
 2. Couple puzzle solving with programming skills
+3. Interact with friends in the programming world
