@@ -17,4 +17,4 @@ Main purposes of the application:
 3. Interact with friends in the programming world
 
 Planning-
-In the next weeks, I will be focusing in the band websiteß
+In the next weeks, I will be focusing in the band website
